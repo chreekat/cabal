@@ -2,6 +2,11 @@
 
 set -Eeuo pipefail
 
+# Add nixos to PATH, since nixos is how these systesm are administrated.
+if [ -d /run/current-system/sw/bin ]; then
+    export PATH="/run/current-system/sw/bin:$PATH"
+fi
+
 # Install brew locally in the project dir. Packages will also be installed here.
 # FIXME: Use brew in supported way. See
 # https://docs.brew.sh/Installation#untar-anywhere-unsupported
